@@ -2,7 +2,7 @@
 #coding=utf-8
 import pymysql
 
-db = pymysql.connect(host='172.21.129.214',user='root',passwd='YdMysqlxx9',db='next_lec',port=3306,charset='utf8')
+db = pymysql.connect(host='bd214',user='root',passwd='YdMysqlxx9',db='next_lec',port=3306,charset='utf8')
 cursor = db.cursor()
 
 # 查看表具体列的信息

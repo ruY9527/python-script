@@ -1,3 +1,4 @@
+#coding=utf-8
 #从selenium导入浏览器驱动
 from selenium import webdriver
 #导入浏览器驱动设置选项

@@ -1,6 +1,8 @@
+#coding=utf-8
+
 import pymysql
 
-db = pymysql.connect(host='192.168.204.11',user='root',passwd='YdMysqlxx9',db='funing_warehouse',port=3306,charset='utf8')
+db = pymysql.connect(host='bd214',user='root',passwd='YdMysqlxx9',db='funing_warehouse',port=3306,charset='utf8')
 cursor = db.cursor()
 mysql_count_sql = "select count(*) from " 
 mysql_db_sql = '''
