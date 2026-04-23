@@ -21,7 +21,6 @@ def readCsvFor():
     for index,value in df.iterrows():
         print(value['Name'])
         nameList.append(value['Name'])
-        YD&BigData8
     print(len(nameList))    
 
 if __name__ == '__main__':

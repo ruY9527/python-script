@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(find *)",
+      "Bash(pip index *)",
+      "Bash(pip show *)",
+      "Bash(do)",
+      "Bash(then)",
+      "Bash(else)",
+      "Bash(fi)",
+      "Bash(done)",
+      "Bash(git add *)"
+    ]
+  },
+  "$version": 3
+}
