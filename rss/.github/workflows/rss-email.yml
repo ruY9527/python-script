@@ -1,0 +1,51 @@
+name: RSS外刊邮件推送
+
+on:
+  # 定时触发：UTC 0点 = 北京时间 08:00
+  schedule:
+    - cron: '0 0 * * *'
+
+  # 手动触发
+  workflow_dispatch:
+    inputs:
+      source:
+        description: '指定RSS源 (留空使用全部)'
+        required: false
+        default: ''
+      test_mode:
+        description: '测试模式（不发送邮件）'
+        required: false
+        type: boolean
+        default: false
+
+jobs:
+  send-rss-email:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 检出代码
+        uses: actions/checkout@v4
+
+      - name: 设置Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: 安装依赖
+        run: pip install -r requirements.txt
+
+      - name: 运行RSS邮件推送
+        env:
+          SMTP_SERVER: ${{ secrets.SMTP_SERVER }}
+          SMTP_PORT: ${{ secrets.SMTP_PORT }}
+          SENDER_EMAIL: ${{ secrets.SENDER_EMAIL }}
+          SENDER_PASSWORD: ${{ secrets.SENDER_PASSWORD }}
+          RECEIVER_EMAIL: ${{ secrets.RECEIVER_EMAIL }}
+          RSS_SOURCE: ${{ github.event.inputs.source || 'all' }}
+        run: |
+          if [ "${{ github.event.inputs.test_mode }}" == "true" ]; then
+            python main.py --test
+          else
+            python main.py
+          fi

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+    <style>
+        body {
+            font-family: Georgia, 'Times New Roman', serif;
+            line-height: 1.8;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 650px;
+            margin: 20px auto;
+            background-color: #ffffff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .header {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: #ffffff;
+            padding: 30px;
+            text-align: center;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 24px;
+            font-weight: normal;
+            letter-spacing: 1px;
+        }
+        .header .source-info {
+            margin-top: 10px;
+            font-size: 14px;
+            opacity: 0.8;
+        }
+        .content {
+            padding: 30px;
+        }
+        .meta-info {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-left: 4px solid #2c3e50;
+            margin-bottom: 25px;
+        }
+        .meta-info p {
+            margin: 5px 0;
+            font-size: 14px;
+            color: #555;
+        }
+        .summary {
+            font-size: 16px;
+            color: #555;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 20px;
+            margin-bottom: 25px;
+        }
+        .summary strong {
+            color: #2c3e50;
+        }
+        .article-content {
+            font-size: 16px;
+            line-height: 1.9;
+        }
+        .article-content p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        .footer {
+            background-color: #f8f9fa;
+            padding: 20px;
+            text-align: center;
+            border-top: 1px solid #eee;
+        }
+        .read-more {
+            display: inline-block;
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: #ffffff !important;
+            text-decoration: none;
+            padding: 12px 30px;
+            border-radius: 4px;
+            font-size: 14px;
+            letter-spacing: 1px;
+        }
+        .read-more:hover {
+            background: linear-gradient(135deg, #34495e 0%, #2c3e50 100%);
+        }
+        .disclaimer {
+            margin-top: 15px;
+            font-size: 12px;
+            color: #999;
+        }
+        @media (max-width: 600px) {
+            .container {
+                margin: 10px;
+            }
+            .header, .content, .footer {
+                padding: 20px;
+            }
+            .header h1 {
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>{{ title }}</h1>
+            <div class="source-info">
+                {{ source }} | {{ published }}
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="meta-info">
+                <p><strong>作者：</strong>{{ author }}</p>
+                <p><strong>来源：</strong>{{ source }}</p>
+                <p><strong>发布时间：</strong>{{ published }}</p>
+            </div>
+
+            <div class="summary">
+                <strong>摘要：</strong>{{ summary }}
+            </div>
+
+            <div class="article-content">
+                {{ content }}
+            </div>
+        </div>
+
+        <div class="footer">
+            <a href="{{ link }}" class="read-more">阅读原文</a>
+            <p class="disclaimer">
+                本文内容来自外部来源，仅供参考学习使用。
+            </p>
+        </div>
+    </div>
+</body>
+</html>
